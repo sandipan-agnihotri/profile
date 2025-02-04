@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+    <title>Sandipan Agnihotri - HR Professional & Strategic HR Leader</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://upload.wikimedia.org/wikipedia/commons/5/53/Wikipedia-logo-en-big.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ==============================================
+          CSS Variables & Global Styles
+      ============================================== */
+      :root {
+        --primary-color: #3498db;
+        --secondary-color: #1abc9c;
+        --accent-color: #f39c12;
+        --bg-color: #ffffff;
+        --text-color: #333333;
+        --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        --gradient-secondary: linear-gradient(90deg, var(--primary-color), var(--bg-color));
+      }
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+      
+      /* ==============================================
+          Sticky Navigation with Mobile Hamburger
+      ============================================== */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(5px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        padding: 0.8rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      nav .logo {
+        font-size: 1.6rem;
+        font-weight: 700;
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      
+      nav ul {
+        list-style: none;
+        display: flex;
+      }
+      
+      nav ul li {
+        margin-left: 1.5rem;
+      }
+      
+      nav ul li a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+      }
+      
+      nav ul li a:hover {
+        color: var(--accent-color);
+      }
+      
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+      }
+      
+      .menu-toggle span {
+        width: 25px;
+        height: 3px;
+        background: var(--text-color);
+        margin: 4px 0;
+        transition: all 0.3s ease;
+      }
+      
+      @media (max-width: 768px) {
+        nav ul {
+          position: fixed;
+          top: 60px;
+          right: -100%;
+          background: rgba(255, 255, 255, 0.95);
+          flex-direction: column;
+          width: 200px;
+          padding: 1rem;
+          transition: right 0.4s ease;
+          border-radius: 8px;
+        }
+        nav ul li {
+          margin: 1rem 0;
+        }
+        nav ul.active {
+          right: 20px;
+        }
+        .menu-toggle {
+          display: flex;
+        }
+      }
+      
+      /* ==============================================
+          Hero Section with Animated Gradient Background
+      ============================================== */
+      .hero {
+        position: relative;
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--gradient-primary);
+        background-size: 400% 400%;
+        animation: gradientAnimation 15s ease infinite;
+      }
+      
+      @keyframes gradientAnimation {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+      
+      .hero-content {
+        text-align: center;
+        padding: 20px;
+        max-width: 600px;
+      }
+      
+      .hero-content img.profile-pic {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 4px solid var(--accent-color);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+      
+      .hero-content h1 {
+        font-size: 2.8rem;
+        margin: 15px 0;
+        color: var(--bg-color);
+      }
+      
+      .hero-content p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        color: var(--bg-color);
+      }
+      
+      .cta-button {
+        display: inline-block;
+        background: var(--accent-color);
+        color: var(--bg-color);
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background 0.3s ease, transform 0.3s ease;
+      }
+      
+      .cta-button:hover {
+        background: var(--secondary-color);
+        transform: translateY(-3px);
+      }
+      
+      /* ==============================================
+          Section & Container Styling
+      ============================================== */
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 6rem 2rem 2rem; /* top padding to account for fixed nav */
+      }
+      
+      .section {
+        padding: 4rem 0;
+        animation: fadeInUp 1s ease-out;
+      }
+      
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      .section-title {
+        text-align: center;
+        margin-bottom: 2rem;
+        position: relative;
+      }
+      
+      .section-title h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+        position: relative;
+      }
+      
+      .section-title h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 4px;
+        background: var(--accent-color);
+        border-radius: 2px;
+      }
+      
+      /* ==============================================
+          Card & Grid Styling
+      ============================================== */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+      
+      .card {
+        background: #f9f9f9;
+        border-radius: 10px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      }
+      
+      .card h3 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+      }
+      
+      .card p,
+      .card ul li {
+        font-size: 1rem;
+        color: var(--text-color);
+      }
+      
+      .card ul {
+        list-style: none;
+        padding-left: 1rem;
+      }
+      
+      .card ul li {
+        margin-bottom: 0.5rem;
+        position: relative;
+        padding-left: 1.2rem;
+      }
+      
+      .card ul li::before {
+        content: '✔';
+        position: absolute;
+        left: 0;
+        color: var(--accent-color);
+      }
+      
+      /* ==============================================
+          Back-to-Top Button
+      ============================================== */
+      #backToTop {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: var(--accent-color);
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        color: var(--bg-color);
+        font-size: 1.5rem;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        z-index: 1000;
+      }
+      
+      #backToTop.show {
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      /* ==============================================
+          Responsive Styles
+      ============================================== */
+      @media (max-width: 768px) {
+        .hero-content h1 {
+          font-size: 2rem;
+        }
+        .hero-content p {
+          font-size: 1rem;
+        }
+        .section {
+          padding: 3rem 1rem;
+        }
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .cta-button {
+          padding: 0.8rem 1.5rem;
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sticky Navigation -->
+    <nav>
+      <div class="logo">Sandipan Agnihotri</div>
+      <div class="menu-toggle" id="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul id="navbar">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education &amp; Certifications</a></li>
+        <li><a href="#competencies">Core Competencies</a></li>
+        <li><a href="#additional">Additional Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    
+    <!-- Hero Section with Animated Gradient Background -->
+    <section class="hero">
+      <div class="hero-content">
+        <img
+          src="https://media.licdn.com/dms/image/v2/D5603AQGN5QtbMDtISw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1731478304077?e=1744243200&v=beta&t=RB2f98XO1znf7n1LO_Z25HosqnL-6LHn2L8sp1VAxzo"
+          alt="Sandipan Agnihotri"
+          class="profile-pic"
+        />
+        <h1>Sandipan Agnihotri</h1>
+        <p>Empowering Organizations &amp; Nurturing Talent</p>
+        <a href="#contact" class="cta-button">Get in Touch</a>
+      </div>
+    </section>
+    
+    <!-- Main Content Container -->
+    <div class="container">
+      <!-- About Section -->
+      <section class="section" id="about">
+        <div class="section-title">
+          <h2>About Me</h2>
+        </div>
+        <p>
+          With a robust background in Human Resources, I excel at streamlining processes, fostering talent, and cultivating engaging workplace cultures. My academic achievements and hands-on experience in strategic HR management empower me to drive operational efficiency and enhance employee engagement.
+        </p>
+      </section>
+      
+      <!-- Experience Section -->
+      <section class="section" id="experience">
+        <div class="section-title">
+          <h2>Professional Experience</h2>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <h3>HR Associate - IDL Buildcon</h3>
+            <ul>
+              <li>Streamlined interdepartmental collaboration to enhance operational efficiency.</li>
+              <li>Led a team of 18 to execute HR initiatives and operational strategies.</li>
+              <li>Implemented comprehensive recruitment strategies, reducing attrition by 11%.</li>
+              <li>Reduced organizational expenditure by 3% through optimized financial policies.</li>
+              <li>Increased employee performance by 23% using tailored workshops and psychological metrics.</li>
+              <li>Lowered talent acquisition costs by 13% with efficient recruitment methods.</li>
+              <li>Facilitated psychological workshops to boost workplace morale.</li>
+              <li>Oversaw payroll processing and employee performance appraisals.</li>
+              <li>Fostered a high-performing and engaging organizational culture.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Education & Certifications Section -->
+      <section class="section" id="education">
+        <div class="section-title">
+          <h2>Education &amp; Certifications</h2>
+        </div>
+        <div class="grid">
+          <!-- Education Card -->
+          <div class="card">
+            <h3>Education</h3>
+            <ul>
+              <li>
+                <strong>BBA (HR)</strong><br />
+                The Rashtrasant Tukadoji Maharaj Nagpur University<br />
+                CGPA: 8.88
+              </li>
+              <li>
+                <strong>MBA (Strategic HR)</strong><br />
+                Chandigarh University
+              </li>
+            </ul>
+          </div>
+          <!-- Certifications Card -->
+          <div class="card">
+            <h3>Certifications</h3>
+            <ul>
+              <li>
+                BUS641: Strategic Negotiations and Conflict Management<br />
+                <em>Saylor Academy (Jan 2025)</em>
+              </li>
+              <li>
+                Human Resources Development<br />
+                <em>IIENSTITU (Sep 2024)</em>
+              </li>
+              <li>
+                HR: Recruitment and Selection<br />
+                <em>The Open University (Sep 2024)</em>
+              </li>
+              <li>
+                HR Conflict Management &amp; Emotional Intelligence 3.0<br />
+                <em>Udemy (Aug 2024)</em>
+              </li>
+              <li>
+                Recruitment Skills<br />
+                <em>Oxford Home Study Centre (Feb 2024)</em>
+              </li>
+              <li>
+                HR Skill Workshop<br />
+                <em>Tareeqa Global Solutions (Jul 2023)</em>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Core Competencies Section -->
+      <section class="section" id="competencies">
+        <div class="section-title">
+          <h2>Core Competencies</h2>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <ul>
+              <li>HR Payroll</li>
+              <li>Recruitment &amp; Selection</li>
+              <li>Talent Acquisition &amp; Management</li>
+              <li>Conflict Management</li>
+              <li>Performance Management &amp; Analysis</li>
+              <li>MS Excel (Basic)</li>
+              <li>HR Analytics: HRIS (Basic)</li>
+              <li>Workforce Planning</li>
+              <li>Employee Engagement Strategies</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Additional Experience Section -->
+      <section class="section" id="additional">
+        <div class="section-title">
+          <h2>Additional Experience</h2>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <h3>Campus Ambassador, IMUN</h3>
+            <ul>
+              <li>Championed IMUN conferences through strategic social media campaigns.</li>
+            </ul>
+            <p><em>Jan 2025 - Present</em></p>
+          </div>
+          <div class="card">
+            <h3>Internshala Student Partner (ISP)</h3>
+            <ul>
+              <li>Motivated students to enroll in online Internshala trainings.</li>
+              <li>Promoted campaigns and assisted students in identifying career aspirations.</li>
+              <li>Led social media campaigns to expand Internshala's reach.</li>
+            </ul>
+            <p><em>Nov 2024 - Jan 2025</em></p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Contact Section -->
+      <section class="section" id="contact">
+        <div class="section-title">
+          <h2>Contact</h2>
+        </div>
+        <p>
+          Based in Gharuan, Punjab, India<br />
+          Phone: +91-7972121958<br />
+          Email:
+          <a href="mailto:sandipanagnihotri288@gmail.com" style="color: var(--primary-color);">
+            sandipanagnihotri288@gmail.com
+          </a>
+        </p>
+        <br />
+        <a href="mailto:sandipanagnihotri288@gmail.com" class="cta-button">Send Me an Email</a>
+      </section>
+    </div>
+    
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 1rem 0; font-size: 0.9rem; color: #777;">
+      &copy; 2025 Sandipan Agnihotri. All Rights Reserved.
+    </footer>
+    
+    <!-- Back-to-Top Button -->
+    <button id="backToTop" title="Back to Top">↑</button>
+    
+    <script>
+      // Mobile Hamburger Toggle
+      const menuToggle = document.getElementById('mobile-menu');
+      const navbar = document.getElementById('navbar');
+      menuToggle.addEventListener('click', () => {
+        navbar.classList.toggle('active');
+        menuToggle.classList.toggle('open');
+      });
+      
+      // Back-to-Top Button
+      const backToTop = document.getElementById('backToTop');
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          backToTop.classList.add('show');
+        } else {
+          backToTop.classList.remove('show');
+        }
+      });
+      
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    </script>
+  </body>
+</html>
